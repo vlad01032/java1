@@ -43,13 +43,13 @@ public class Animal {
 
     public String toStringFull() {
 
-        return "I am " + getKind() + " eat " + getFoodKind() + " " + calculateFoodWeight();
+        return "I am " + getKind() + ", eat " + getFoodKind() + " " + calculateFoodWeight();
     }
 
     @Override
     public String toString() {
 
-        return "I am " + getKind() + " eat " + getFoodKind();
+        return "I am " + getKind() + ", eat " + getFoodKind();
     }
 
 
