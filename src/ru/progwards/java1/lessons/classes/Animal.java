@@ -33,8 +33,7 @@ public class Animal {
 
     public double getFoodCoeff() {
 
-        return 0.02;
-    }
+        return 0.02;    }
 
     public double calculateFoodWeight() {
 
