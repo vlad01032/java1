@@ -67,5 +67,7 @@ public class DIntArray {
         arr.atDelete(2);
         System.out.println(arr.at(1));
 
+
+
     }
 }
