@@ -42,15 +42,13 @@ public class Binary {
             result = "0" + result;
         }
 
-
-
-        result = val + result;
+        if (result.length() < 8) result = val + result;
 
         return result;
     }
 
     public static void main(String[] args) {
-        Binary ss = new Binary((byte) 192);
+        Binary ss = new Binary((byte) 128);
         System.out.println(ss.toString());
     }
 }
