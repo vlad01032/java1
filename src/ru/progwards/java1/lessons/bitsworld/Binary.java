@@ -5,16 +5,17 @@ import java.util.Objects;
 public class Binary {
     int num;
     public Binary(byte num){
-       this.num = (int) num;
+       this.num = num;
     }
 
     public String toString(){
+
         if (num == 0) return "00000000";
 
         String result = "";
         String sign = num < 0 ? "1" : "0";
 
-        if (num < 0) num *= -1;
+        if (num < 0) num += 256;
 
         while (num > 1){
             if ((num & 1) == 0){
@@ -38,7 +39,7 @@ public class Binary {
     }
 
     public static void main(String[] args) {
-        Binary ss = new Binary((byte) 10);
+        Binary ss = new Binary((byte) 255);
         System.out.println(ss.toString());
     }
 }
