@@ -15,18 +15,34 @@ public class Binary {
 
         if (num == 0) return "00000000";
 
-        while (num < -1 || num > 0 ) {
-            if ((num & 1) == 0){
-                result = "0" + result;
-            } else {
-                result = "1" + result;
+        if (num < 0){
+            while (num < -1) {
+                if ((num & 1) == 0){
+                    result = "0" + result;
+                } else {
+                    result = "1" + result;
+                }
+                num >>= 1;
             }
-            num >>= 1;
+            result = "1" + result;
+        } else {
+            while (num > 0 ) {
+                if ((num & 1) == 0){
+                    result = "0" + result;
+                } else {
+                    result = "1" + result;
+                }
+                num >>= 1;
+            }
         }
+
+
 
         while (result.length() < 7){
             result = "0" + result;
         }
+
+
 
         result = val + result;
 
@@ -34,7 +50,7 @@ public class Binary {
     }
 
     public static void main(String[] args) {
-        Binary ss = new Binary((byte) 128);
+        Binary ss = new Binary((byte) 192);
         System.out.println(ss.toString());
     }
 }
