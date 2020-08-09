@@ -32,14 +32,13 @@ public class Binary {
             while (result.length() < 7) {
                 result = "0" + result;
             }
-
             result = sign + result;
         }
         return result;
     }
 
     public static void main(String[] args) {
-        Binary ss = new Binary((byte) 255);
+        Binary ss = new Binary((byte) 156);
         System.out.println(ss.toString());
     }
 }

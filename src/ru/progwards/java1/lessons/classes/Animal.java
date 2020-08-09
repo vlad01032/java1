@@ -1,20 +1,52 @@
 package ru.progwards.java1.lessons.classes;
 
-public class Animal {
+import java.util.Objects;
+
+public class Animal implements FoodCompare {
+
     double weight;
-
-    enum AnimalKind {
-        ANIMAL, COW, HAMSTER, DUCK
-    }
-
-    enum FoodKind {
-        UNKNOWN, HAY, CORN
-    }
 
     public Animal(double weight) {
 
         this.weight = weight;
     }
+
+    @Override
+    public boolean equals(Object anObject) {
+        if (this == anObject) return true;
+        if (anObject == null || getClass() != anObject.getClass()) return false;
+        Animal animal = (Animal) anObject;
+        return Double.compare(animal.weight, weight) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(weight);
+    }
+
+    enum AnimalKind {
+        ANIMAL, COW, HAMSTER, DUCK
+    }
+
+    public enum FoodKind {
+        UNKNOWN, HAY, CORN
+    }
+
+    public double getFood1kgPrice() {
+        switch (getFoodKind()){
+            case HAY: return 20;
+            case CORN: return 50;
+            case UNKNOWN: return 0;
+        }
+        return 0;
+    }
+
+    @Override
+    public double getFoodPrice() {
+        return calculateFoodWeight() * getFood1kgPrice();
+    }
+
+
 
     public AnimalKind getKind() {
 
