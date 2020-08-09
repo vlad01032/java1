@@ -1,5 +1,5 @@
 package ru.progwards.java1.lessons.classes;
 
 public interface FoodCompare {
-    double getFoodPrice();
+    public int compareFoodPrice(Animal animal);
 }

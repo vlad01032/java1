@@ -41,9 +41,14 @@ public class Animal implements FoodCompare {
         return 0;
     }
 
-    @Override
+
     public double getFoodPrice() {
         return calculateFoodWeight() * getFood1kgPrice();
+    }
+
+    @Override
+    public int compareFoodPrice(Animal animal){
+        return Double.compare(getFoodPrice(), animal.getFoodPrice());
     }
 
 
