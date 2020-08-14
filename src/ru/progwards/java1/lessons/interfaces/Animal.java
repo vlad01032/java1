@@ -1,4 +1,4 @@
-package ru.progwards.java1.lessons.classes;
+package ru.progwards.java1.lessons.interfaces;
 
 import java.util.Objects;
 
@@ -36,7 +36,7 @@ public class Animal implements FoodCompare, CompareWeight {
         switch (getFoodKind()){
             case HAY: return 20;
             case CORN: return 50;
-            case UNKNOWN: return 0;
+//            case UNKNOWN: return 0;
         }
         return 0;
     }
@@ -48,12 +48,18 @@ public class Animal implements FoodCompare, CompareWeight {
 
     @Override
     public int compareFoodPrice(Animal animal){
-        return Integer.compare((int)getFoodPrice(), (int)animal.getFoodPrice());
+        return Double.compare(getFoodPrice(), animal.getFoodPrice());
     }
 
     @Override
     public CompareResult compareWeight(CompareWeight smthHasWeigt){
-//        if (Double.compare(this.weight, smthHasWeigt)  );
+        Animal animal1 = (Animal) smthHasWeigt;
+
+        switch ( (Double.compare(getWeight(),animal1.getWeight())) ){
+            case -1: return CompareResult.LESS;
+            case 1: return CompareResult.GREATER;
+        }
+
         return CompareResult.EQUAL;
     }
 
