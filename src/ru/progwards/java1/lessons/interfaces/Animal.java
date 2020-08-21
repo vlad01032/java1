@@ -7,7 +7,6 @@ public class Animal implements FoodCompare, CompareWeight {
     double weight;
 
     public Animal(double weight) {
-
         this.weight = weight;
     }
 
@@ -22,6 +21,16 @@ public class Animal implements FoodCompare, CompareWeight {
     @Override
     public int hashCode() {
         return Objects.hash(weight);
+    }
+
+    @Override
+    public int compareFoodPrice(Animal animal){
+        return Double.compare(getFoodPrice(), animal.getFoodPrice());
+    }
+
+    @Override
+    public String toString() {
+        return "I am " + getKind() + ", eat " + getFoodKind();
     }
 
     enum AnimalKind {
@@ -41,30 +50,9 @@ public class Animal implements FoodCompare, CompareWeight {
         return 0;
     }
 
-
     public double getFoodPrice() {
         return calculateFoodWeight() * getFood1kgPrice();
     }
-
-    @Override
-    public int compareFoodPrice(Animal animal){
-        return Double.compare(getFoodPrice(), animal.getFoodPrice());
-    }
-
-    @Override
-    public CompareResult compareWeight(CompareWeight smthHasWeigt){
-        Animal animal1 = (Animal) smthHasWeigt;
-
-        switch ( (Double.compare(getWeight(),animal1.getWeight())) ){
-            case -1: return CompareResult.LESS;
-            case 1: return CompareResult.GREATER;
-        }
-
-        return CompareResult.EQUAL;
-    }
-
-
-
 
     public AnimalKind getKind() {
 
@@ -76,6 +64,7 @@ public class Animal implements FoodCompare, CompareWeight {
         return FoodKind.UNKNOWN;
     }
 
+    @Override
     public double getWeight() {
 
         return this.weight;
@@ -95,16 +84,9 @@ public class Animal implements FoodCompare, CompareWeight {
         return "I am " + getKind() + ", eat " + getFoodKind() + " " + calculateFoodWeight();
     }
 
-    @Override
-    public String toString() {
-
-        return "I am " + getKind() + ", eat " + getFoodKind();
-    }
-
-
     public static void main(String[] args) {
-        Animal a1 = new Animal(5.0);
-        System.out.println(a1.toString());
+//        Animal a1 = new Animal(5.0);
+//        System.out.println(a1.toString());
 
     }
 
