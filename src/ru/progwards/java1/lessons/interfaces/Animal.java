@@ -33,6 +33,11 @@ public class Animal implements FoodCompare, CompareWeight {
         return "I am " + getKind() + ", eat " + getFoodKind();
     }
 
+    @Override
+    public double getWeight() {
+        return this.weight;
+    }
+
     enum AnimalKind {
         ANIMAL, COW, HAMSTER, DUCK
     }
@@ -62,12 +67,6 @@ public class Animal implements FoodCompare, CompareWeight {
     public FoodKind getFoodKind() {
 
         return FoodKind.UNKNOWN;
-    }
-
-    @Override
-    public double getWeight() {
-
-        return this.weight;
     }
 
     public double getFoodCoeff() {
